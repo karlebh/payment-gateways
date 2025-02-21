@@ -123,4 +123,5 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'paystack_public_key' => env('PAYSTACK_TEST_SECRET_KEY'),
 ];
