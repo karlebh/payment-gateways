@@ -124,4 +124,9 @@ return [
     ],
 
     'paystack_public_key' => env('PAYSTACK_TEST_SECRET_KEY'),
+
+    'opay_test_secret_key' => env('OPAY_TEST_SECRET_KEY'),
+    'opay_test_public_key' => env('OPAY_TEST_PUBLIC_KEY'),
+    'opay_live_public_key' => env('OPAY_LIVE_PUBLIC_KEY', ''),
+    'opay_merchant_id' => env('OPAY_MERCHANT_ID'),
 ];
