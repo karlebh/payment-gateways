@@ -14,7 +14,7 @@
             <input type="email" name="email">
             <input type="number" name="amount">
 
-            <button type="submit">Pay to Paystack</button>
+            <button type="submit">Pay to Opay</button>
         </form>
     </body>
 

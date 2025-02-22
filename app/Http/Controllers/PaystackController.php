@@ -33,18 +33,18 @@ class PaystackController extends Controller
                 );
         } catch (\Exception $e) {
             Log::alert("Exception: {$e->getMessage()} in {$e->getFile()} on line {$e->getLine()}");
-            return back()->withError('Network Issues');
+            return back()->withError('Could not connect');
         }
 
 
         if (! $response) {
-            return back()->withError($response->message);
+            return back()->withError('Could not connect');
         }
 
         $responseData = $response->json();
 
         if (! $responseData  || ! $responseData['status']) {
-            return back()->withError($responseData->message);
+            return back()->withError('Could not connect');
         }
 
         return redirect($responseData['data']['authorization_url']);
@@ -66,17 +66,17 @@ class PaystackController extends Controller
                 );
         } catch (\Exception $e) {
             Log::alert("Exception: {$e->getMessage()} in {$e->getFile()} on line {$e->getLine()}");
-            return back()->withError('Network Issues');
+            return back()->withError('Could not connect');
         }
 
         if (! $response) {
-            return back()->withError($response->message);
+            return back()->withError('Could not connect');
         }
 
         $paymentData = $response->json();
 
         if (! $paymentData  || ! $paymentData['status']) {
-            return back()->withError($paymentData->message);
+            return back()->withError('Could not connect');
         }
 
         return view('paystack.show')->with(['paymentData' => $paymentData]);
@@ -96,17 +96,17 @@ class PaystackController extends Controller
                 );
         } catch (\Exception $e) {
             Log::alert("Exception: {$e->getMessage()} in {$e->getFile()} on line {$e->getLine()}");
-            return back()->withError('Network Issues');
+            return back()->withError('Could not connect');
         }
 
         if (! $response) {
-            return back()->withError($response->message);
+            return back()->withError('Could not connect');
         }
 
         $paymentData = $response->json();
 
         if (! $paymentData  || ! $paymentData['status']) {
-            return back()->withError($paymentData->message);
+            return back()->withError('Could not connect');
         }
 
         return view('paystack.index')->with(['paymentData' => $paymentData]);

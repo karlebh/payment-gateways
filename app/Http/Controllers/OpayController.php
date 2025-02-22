@@ -80,13 +80,13 @@ class OpayController extends Controller
         }
 
         if (! $response) {
-            return back()->withError($response->message);
+            return back()->withError("Could not connect");
         }
 
         $responseData = $response->json();
 
         if (! $responseData  || $responseData['message'] !== 'SUCCESSFUL') {
-            return back()->withError($responseData->message);
+            return back()->withError("Could not connect");
         }
 
         return redirect($responseData['data']['cashierUrl']);
